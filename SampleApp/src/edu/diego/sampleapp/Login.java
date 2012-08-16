@@ -2,6 +2,7 @@ package edu.diego.sampleapp;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.*;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -25,5 +26,14 @@ public class Login extends Activity {
     	EditText userName = (EditText)findViewById(R.id.editText1);
     	
     	textView.setText("Hello "+userName.getText()+", Thanks for signing IN");
+    	
+    	Intent nextActivityIntent = new Intent(getApplicationContext(),MainActivity.class);
+    	//Bundle sendInfo = new Bundle();
+    	
+    	//sendInfo.putString("loginName", userName.getText().toString());
+    	nextActivityIntent.putExtra("loginName", userName.getText().toString());
+    	
+    	this.startActivity(nextActivityIntent);
+    	
     }
 }
